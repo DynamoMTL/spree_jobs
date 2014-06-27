@@ -1,0 +1,26 @@
+Hello, <br/>
+<p>
+  A new applicant has just applied for a job position through the website. Below are the details:
+</p>
+<p>
+  Intro:<br/>
+  <%= @applicant.intro %>
+</p>
+
+<p>
+  Position: <%= @applicant.job_opening.title %> <br/>
+  Location: <%= @applicant.job_opening.job_location.address %>, <%= @applicant.job_opening.job_location.city %>
+</p>
+
+<p>
+  Name: <%= @applicant.name %> <br/>
+  Email: <%= @applicant.email %> <br/>
+  Phone: <%= @applicant.phone %> <br/>
+</p>
+
+<br/>
+<br/>
+Regards, <br/>
+<br/>
+Blue Bottle Coffee<br/>
+Website Team

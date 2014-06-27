@@ -1,0 +1,26 @@
+<% content_for :sidebar_title do %>
+  Menu
+<% end %>
+
+<% content_for :sidebar do %>
+  <nav class="menu">
+    <ul class="sidebar" data-hook="admin_jobs_sidebar_menu">
+      <li>
+        <%= link_to t(:job_openings), spree.admin_job_openings_path, :icon => 'search' %>
+      </li>
+      <li>
+        <%= link_to t(:job_locations), spree.admin_job_locations_path, :icon => 'search' %>
+      </li>
+      <li>
+        <%= link_to t(:job_applicants), spree.admin_job_applicants_path, :icon => 'search' %>
+      </li>
+      <hr/>
+      <li>
+        <%= link_to t(:new_job_opening), spree.new_admin_job_opening_path, :icon => 'add' %>
+      </li>
+      <li>
+        <%= link_to t(:new_job_location), spree.new_admin_job_location_path, :icon => 'add' %>
+      </li>
+    </ul>
+  </nav>
+<% end %>

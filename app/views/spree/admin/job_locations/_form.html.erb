@@ -1,0 +1,23 @@
+<%= render :partial => 'spree/shared/error_messages', :locals => { :target => @job_location } %>
+
+<fieldset id="general_fields">
+  <legend><%= t(:general) %></legend>
+  <%= f.field_container :address do %>
+    <%= f.label :address %><br />
+    <%= f.text_field :address, class: 'fullwidth title' %>
+  <% end %>
+
+  <%= f.field_container :city do %>
+    <%= f.label :city %><br />
+    <%= f.text_field :city, class: 'fullwidth title' %>
+  <% end %>
+
+  <%= f.field_container :country do %>
+    <%= f.label :country %><br />
+    <%= f.collection_select :country_id, ::Spree::Country.order('name asc').all, :id, :name, {}, {:class => 'select2 fullwidth'} %>
+  <% end %>
+
+</fieldset>
+
+<div class="clear"></div>
+

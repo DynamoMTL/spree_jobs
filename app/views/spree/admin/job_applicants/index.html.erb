@@ -1,0 +1,57 @@
+<%= render :partial => 'spree/admin/shared/spree_jobs_side_menu' %>
+
+<% content_for :page_title do %>
+  <%= t(:job_applicants) %>
+<% end %>
+
+<%= paginate @job_applicants %>
+  <% unless @job_applicants.any? %>
+    <div class="no-objects-found">
+      <%= t(:no_results) %>
+    </div>
+  <% else %>
+    <table class="index job-applicants-table">
+      <thead>
+        <tr>
+            <th>Name</th>
+            <th>Position</th>
+            <th>Location</th>
+            <th class="actions"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @job_applicants.each do |applicant| %>
+        <tr class="<%= cycle('odd', 'even') %>">
+          <td>
+            Name: <%= applicant.name %><br/>
+            <%= "Email: #{applicant.email}<br/>".html_safe if applicant.email.present? %>
+            <%= "Phone: #{applicant.phone}<br/>".html_safe if applicant.phone.present? %>
+            <div class="intro"><%= applicant.intro %></div>
+            <div class="pull-right actions">
+              <% if applicant.cover.exists? %>
+                <a href="<%= applicant.cover.url %>" class="icon_link icon-download" style="padding-left: 0px; padding-right: 0px;"><span class="text">Cover Letter</span></a>
+              <% end %>
+              <% if applicant.resume.exists? %>
+                <a href="<%= applicant.resume.url %>" class="icon_link icon-download" style="padding-left: 0px; padding-right: 0px;"><span class="text">Resume</span></a>
+              <% end %>
+              <% if applicant.intro.present? %>
+                <a href="javascript:void(0);" class="icon_link icon-info intro-link"><span class="text">Show Intro</span></a>
+              <% end %>
+            </div>
+          </td>
+          <td>
+            <%= link_to(applicant.job_opening.title, spree.edit_admin_job_opening_path(applicant.job_opening)) if applicant.job_opening %>
+          </td>
+          <td>
+            <%= "#{applicant.job_opening.job_location.address}, #{applicant.job_opening.job_location.city}" if applicant.job_opening %>
+          </td>
+          <td class="actions">
+              <%= link_to_delete applicant, :no_text => true %>
+          </td>
+        </tr>
+
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+<%= paginate @job_applicants %>

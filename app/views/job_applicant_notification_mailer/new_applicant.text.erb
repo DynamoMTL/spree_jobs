@@ -1,0 +1,18 @@
+Hello,
+
+A new applicant has just applied for a job position through the website. Below are the details:
+
+Intro:
+<%= @applicant.intro %>
+
+Position: <%= @applicant.job_opening.title %>
+Location: <%= @applicant.job_opening.job_location.address %>, <%= @applicant.job_opening.job_location.city %>
+
+Name: <%= @applicant.name %>
+Email: <%= @applicant.email %>
+Phone: <%= @applicant.phone %>
+
+Regards,
+
+Blue Bottle Coffee
+Website Team

@@ -1,0 +1,14 @@
+<%= render :partial => 'spree/admin/shared/spree_jobs_side_menu' %>
+
+<% content_for :page_title do %>
+  <%= t(:edit_job_location) %>
+<% end %>
+
+<%= render :partial => 'spree/shared/error_messages', :locals => { :target => @job_location } %>
+
+<%= form_for [:admin, @job_location] do |f| %>
+  <%= render :partial => "form", :locals => { :f => f } %>
+  <br/>
+  <hr/>
+  <%= render :partial => 'spree/admin/shared/edit_resource_links' %>
+<% end %>

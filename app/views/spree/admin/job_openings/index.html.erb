@@ -1,0 +1,46 @@
+<%= render :partial => 'spree/admin/shared/spree_jobs_side_menu' %>
+
+<% content_for :page_title do %>
+  <%= t(:job_openings) %>
+<% end %>
+
+<% unless @job_openings.any? %>
+  <div class="no-objects-found">
+    <%= t(:no_results) %>
+  </div>
+<% else %>
+  <table class="index">
+    <thead>
+      <tr>
+          <th>Title</th>
+          <th>Applicants</th>
+          <th>Active</th>
+          <th>Location</th>
+          <th class="actions"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @job_openings.each do |opening| %>
+        <tr class="<%= cycle('odd', 'even') %>">
+          <td>
+            <%= opening.title %>
+          </td>
+          <td>
+            <%= link_to opening.job_applicants.count, spree.admin_job_applicants_path %>
+          </td>
+          <td>
+            <%= opening.active ? 'yes' : 'no' %>
+          </td>
+          <td>
+            <%= opening.job_location.address %>
+          </td>
+          <td class="actions">
+              <%= link_to_edit opening, :no_text => true %>
+              <%= link_to_delete opening, :no_text => true %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
