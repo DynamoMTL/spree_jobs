@@ -2,7 +2,7 @@
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_jobs'
-  s.version     = '2.1.4'
+  s.version     = '2.3.0'
   s.summary     = 'Spree Jobs'
   s.description = 'Allows you to create and manage jobs on the admin and show the active job openings on the frontend of your site.'
   s.required_ruby_version = '>= 1.9.3'
@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   s.require_path = 'lib'
   s.requirements << 'none'
 
-  s.add_dependency 'spree_core', '~> 1.3'
+  s.add_dependency 'spree_core', '~> 2'
 
   s.add_dependency 'paperclip'
 
