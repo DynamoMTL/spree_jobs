@@ -1,8 +1,5 @@
 module Spree
   class JobApplicant < ActiveRecord::Base
-    attr_accessible :name, :cover, :contact_info, :resume, :intro, :phone, :email
-    attr_accessible :job_opening_id
-
     belongs_to :job_opening
 
     has_attached_file :cover,
