@@ -1,7 +1,7 @@
 module Spree
   class JobOpeningsController < StoreController
 
-    respond_to :html
+    respond_to :html, :json
 
     def index
       @job_openings = ::Spree::JobOpening.where(active: true).order('created_at desc')
