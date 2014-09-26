@@ -33,7 +33,7 @@
             <%= opening.active ? 'yes' : 'no' %>
           </td>
           <td>
-            <%= opening.job_location.address %>
+            <%= opening.job_location.try(:address) || '--' %>
           </td>
           <td class="actions">
               <%= link_to_edit opening, :no_text => true %>
