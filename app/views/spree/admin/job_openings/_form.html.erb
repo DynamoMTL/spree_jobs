@@ -19,6 +19,11 @@
 
   <%= f.collection_select :job_location_id, ::Spree::JobLocation.order('address asc').all, :id, :name, {}, { class: "select2 fullwidth"}  %>
 
+  <%= f.field_container :external_application_url do %>
+    <%= f.label :external_application_url %><br />
+    <%= f.text_field :external_application_url, class: 'fullwidth title' %>
+  <% end %>
+
   <%= f.field_container :active, :class => ['checkbox'] do %>
       <label>
         <%= f.check_box :active %>
